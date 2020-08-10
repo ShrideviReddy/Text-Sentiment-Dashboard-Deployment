@@ -27,17 +27,17 @@ random_tweet = st.sidebar.radio('Sentiment', ('positive', 'negative', 'neutral')
 st.sidebar.markdown(data.query("airline_sentiment== @random_tweet")[["text"]].sample(n=1).iat[0,0])
 
 st.sidebar.markdown("### Number of tweets by sentiment")
-st.sidebar.markdown("#### Uncheck Hide checkbox to view chart")
+#st.sidebar.markdown("#### Uncheck Hide checkbox to view chart")
 select = st.sidebar.selectbox("Visualization type", ['Histogram', 'Piechart'], key = '1')
 
 sentiment_count = data['airline_sentiment'].value_counts()
 sentiment_count = pd.DataFrame({'Sentiment': sentiment_count.index, 'Tweets':sentiment_count.values})
 
-if not st.sidebar.checkbox("Hide", True):
-        st.markdown("### Number of tweets by sentiment")
-        if select == "Histogram":
-                fig = px.bar(sentiment_count, x= 'Sentiment', y ='Tweets', color = 'Tweets')
-                st.plotly_chart(fig)
-        else:
-                fig = px.pie(sentiment_count , values = 'Tweets', names = 'Sentiment')
-                st.plotly_chart(fig)
+#if not st.sidebar.checkbox("Hide", True):
+st.markdown("### Number of tweets by sentiment")
+if select == "Histogram":
+        fig = px.bar(sentiment_count, x= 'Sentiment', y ='Tweets', color = 'Tweets')
+        st.plotly_chart(fig)
+else:
+        fig = px.pie(sentiment_count , values = 'Tweets', names = 'Sentiment')
+        st.plotly_chart(fig)
