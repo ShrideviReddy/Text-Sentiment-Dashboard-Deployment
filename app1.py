@@ -10,7 +10,8 @@ st.markdown("This dashboard present visual analysis of tweets about US Airlines"
 st.sidebar.markdown("This dashboard present visual analysis of tweets about US Airlines")
 
 
-data_path = r"C:\Users\shrid\anaconda3\envs\textviz\Tweets.csv" 
+#data_path = r"C:\Users\shrid\anaconda3\envs\textviz\Tweets.csv"
+data_path = r"Tweets.csv"
 
 @st.cache(persist = True)
 
